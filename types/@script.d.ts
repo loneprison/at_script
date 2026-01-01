@@ -195,37 +195,37 @@ declare namespace Atarabi {
         getID(layer: Layer): number;
 
         // default: set=true
-        setNull(layer: AVLayer, set?: boolean): void;
+        setNull(layer: RasterLayer, set?: boolean): void;
 
-        getBounds(layer: AVLayer, options?: { time?: number }): Rect;
+        getBounds(layer: RasterLayer, options?: { time?: number }): Rect;
 
-        getMaskBounds(layer: AVLayer, options?: { time?: number; }): Rect;
+        getMaskBounds(layer: RasterLayer, options?: { time?: number; }): Rect;
 
         // threshold: [0, 1]
-        getConnectedBounds(layer: AVLayer, options?: { time?: number; connectivity?: 4 | 8; threshold?: number; }): Rect[];
+        getConnectedBounds(layer: RasterLayer, options?: { time?: number; connectivity?: 4 | 8; threshold?: number; }): Rect[];
 
         // default: binary=false
-        getMoments(layer: AVLayer, options?: { time?: number; binary?: boolean; }): Moments;
+        getMoments(layer: RasterLayer, options?: { time?: number; binary?: boolean; }): Moments;
 
         // 8, 16bpc, default: downsample=1
-        saveFrameToPng(layer: AVLayer, file: File, options?: { time?: number; downsample?: Integer; }): void;
+        saveFrameToPng(layer: RasterLayer, file: File, options?: { time?: number; downsample?: Integer; }): void;
 
         // 8bpc, default: downsample=1, quality=80
-        saveFrameToJpg(layer: AVLayer, file: File, options?: { time?: number; downsample?: Integer; quality?: number; }): void;
+        saveFrameToJpg(layer: RasterLayer, file: File, options?: { time?: number; downsample?: Integer; quality?: number; }): void;
 
         // 8, 16, 32bpc, default: downsample=1
-        saveFrameToHdr(layer: AVLayer, file: File, options?: { time?: number; downsample?: Integer; }): void;
+        saveFrameToHdr(layer: RasterLayer, file: File, options?: { time?: number; downsample?: Integer; }): void;
 
         // 8bpc, default: downsample=1
-        saveFrameToClipboard(layer: AVLayer, options?: { time?: number; downsample?: Integer; }): void;
+        saveFrameToClipboard(layer: RasterLayer, options?: { time?: number; downsample?: Integer; }): void;
 
         // 8bpc, default: downsample=1, skip=0, speed=1
-        saveFramesToGif(layer: AVLayer, startTime: number, endTime: number, file: File, options?: { downsample?: Integer; skip?: number; speed?: number; }): void;
+        saveFramesToGif(layer: RasterLayer, startTime: number, endTime: number, file: File, options?: { downsample?: Integer; skip?: number; speed?: number; }): void;
 
         // 8bpc, default: downsample=1, skip=0, speed=1
-        saveFramesToApng(layer: AVLayer, startTime: number, endTime: number, file: File, options?: { downsample?: Integer; skip?: number; speed?: number; }): void;
+        saveFramesToApng(layer: RasterLayer, startTime: number, endTime: number, file: File, options?: { downsample?: Integer; skip?: number; speed?: number; }): void;
 
-        sampleImage(layer: AVLayer, points: readonly Readonly<Vector2>[], options?: { time?: number; }): ColorA[];
+        sampleImage(layer: RasterLayer, points: readonly Readonly<Vector2>[], options?: { time?: number; }): ColorA[];
     }
 
     type Moments = {
@@ -346,7 +346,7 @@ declare namespace Atarabi {
         // matcnName must start with "Pseudo/" (ex. "Pseudo/Atarabi/Controls")
         create(name: string, matchName?: string): Pseudo.Builder;
 
-        apply(config: Pseudo.Config, layers: AVLayer | AVLayer[]): void;
+        apply(config: Pseudo.Config, layers: RasterLayer | RasterLayer[]): void;
     }
 
     namespace Pseudo {

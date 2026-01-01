@@ -11,7 +11,7 @@ declare namespace Atarabi {
         svgToShapeLayer(svgFile: File, shapeLayer?: ShapeLayer): ShapeLayer;
         svgToShapeLayer(svgText: string, shapeLayer?: ShapeLayer): ShapeLayer;
 
-        getContext(layer?: AVLayer): SVG.Context;
+        getContext(layer?: RasterLayer): SVG.Context;
     }
 
     namespace SVG {
@@ -19,7 +19,7 @@ declare namespace Atarabi {
         // If the first letter is capitalized, absolute coordinates are used; otherwise, relative coordinates are used.
         interface Context {
             // set layer
-            layer(layer: AVLayer): Context;
+            layer(layer: RasterLayer): Context;
             /**
              * Path
              */

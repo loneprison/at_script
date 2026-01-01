@@ -20,12 +20,12 @@ declare namespace Atarabi {
         namespace AtSvg {
             type svgToShapeLayer = (svgFileOrText: File | string, shapeLayer?: ShapeLayer) => ShapeLayer;
 
-            type getContext = (layer?: AVLayer) => Context;
+            type getContext = (layer?: RasterLayer) => Context;
 
             // If the first letter is capitalized, absolute coordinates are used; otherwise, relative coordinates are used.
             interface Context {
                 // set layer
-                layer(layer: AVLayer): Context;
+                layer(layer: RasterLayer): Context;
                 /**
                  * Path
                  */
